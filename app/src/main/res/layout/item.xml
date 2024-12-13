@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/main">
+
+    <TextView
+        android:id="@+id/tvidCatatan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:text="idCatatan"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/tvtanggalDanJam"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="tanggalDanJam"
+        app:layout_constraintStart_toStartOf="@+id/tvidCatatan"
+        app:layout_constraintTop_toBottomOf="@+id/tvidCatatan" />
+
+    <TextView
+        android:id="@+id/tvberatBadan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:text="beratBadan"
+        app:layout_constraintStart_toStartOf="@+id/tvtanggalDanJam"
+        app:layout_constraintTop_toBottomOf="@+id/tvtanggalDanJam" />
+
+    <TextView
+        android:id="@+id/tvtekananDarah"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:layout_marginBottom="24dp"
+        android:text="tekananDarah"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/tvberatBadan"
+        app:layout_constraintTop_toBottomOf="@+id/tvberatBadan" />
+
+    <TextView
+        android:id="@+id/tvcatatan"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="100dp"
+        android:text="catatan"
+        app:layout_constraintStart_toEndOf="@+id/tvidCatatan"
+        app:layout_constraintTop_toTopOf="@+id/tvidCatatan" />
+</androidx.constraintlayout.widget.ConstraintLayout>
