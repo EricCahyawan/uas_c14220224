@@ -10,7 +10,7 @@ data class daftarKesehatan(
     @ColumnInfo(name = "idCatatan")
     var idCatatan: Int = 0,
 
-    @ColumnInfo(name = "tanggalDanJam")
+    @ColumnInfo(name = "tanggalDanJam") // tidak perlu mengambil input
     var tanggalDanJam: String? = null,
 
     @ColumnInfo(name = "beratBadan")

@@ -19,8 +19,9 @@ import uas.c14220224.app.database.daftarKesehatanDB
 class MainActivity : AppCompatActivity() {
     private lateinit var DB: daftarKesehatanDB
     private lateinit var customAdapter: customAdapter
-    private var arDaftar: MutableList<daftarKesehatan> = mutableListOf()
+    private var daftarKesehatan: MutableList<daftarKesehatan> = mutableListOf()
     lateinit var fabAdd: FloatingActionButton
+    lateinit var fabUpload: FloatingActionButton
     lateinit var rvdaftarKesehatan: RecyclerView
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -34,23 +35,31 @@ class MainActivity : AppCompatActivity() {
         }
 
         DB = daftarKesehatanDB.getDatabase(this)
-        customAdapter = customAdapter(arDaftar)
+        ReadtoData()
+
         rvdaftarKesehatan = findViewById(R.id.rvdaftarKesehatan)
+        fabUpload = findViewById(R.id.fabUpload)
+
+        fabUpload.setOnClickListener {
+            val intent = Intent(this, tambah_simpan::class.java)
+            startActivity(intent)
+        }
+
+        customAdapter = customAdapter(daftarKesehatan)
         rvdaftarKesehatan.layoutManager = LinearLayoutManager(this)
         rvdaftarKesehatan.adapter = customAdapter
         fabAdd = findViewById(R.id.fabAdd)
         fabAdd.setOnClickListener {
-            val intent = Intent(this, tambah_simpan::class.java)
+            val intent = Intent(this, addData::class.java)
             startActivity(intent)
         }
     }
 
-    override fun onStart() {
-        super.onStart()
+    fun ReadtoData() {
         CoroutineScope(Dispatchers.Main).async {
-            val daftarBelanja = DB.fundaftarKesehatanDB().selectAll()
-            customAdapter.isiData(daftarBelanja)
-            Log.d("data ROOM", daftarBelanja.toString())
+            val readData = DB.fundaftarKesehatanDB().selectAll()
+            daftarKesehatan.clear()
+            daftarKesehatan = readData
         }
     }
 }

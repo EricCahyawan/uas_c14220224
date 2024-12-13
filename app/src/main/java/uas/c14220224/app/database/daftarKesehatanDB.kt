@@ -18,7 +18,7 @@ abstract class daftarKesehatanDB: RoomDatabase() {
                 synchronized(daftarKesehatanDB::class.java) {
                     INSTANCE = Room.databaseBuilder(
                         context.applicationContext,
-                        daftarKesehatanDB::class.java, "daftarBelanja_db"
+                        daftarKesehatanDB::class.java, "daftarKesehatan_db"
                     )
                         .allowMainThreadQueries()
                         .build()
